@@ -16,3 +16,11 @@ build:
         manual:
           - src: 'src/**/*.ts'
             dest: .
+    - image: giantgecko/front-end
+      context: front-end
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: '**/*.js'
+            dest: .

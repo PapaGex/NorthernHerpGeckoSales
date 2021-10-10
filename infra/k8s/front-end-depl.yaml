@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: front-end-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: front-end
+  template:
+    metadata:
+      labels:
+        app: front-end
+    spec:
+      containers:
+        - name: front-end
+          image: giantgecko/front-end
+          env:
+            - name: jwt
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secret
+                  key: jwt
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: front-end-srv
+spec:
+  selector:
+    app: front-end
+  ports:
+    - name: front-end
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
+
+
+
