@@ -1,20 +1,25 @@
-apiVersion: extensions/v1beta15
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ingress-service
+  name: ingress-srv
   annotations:
-    kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/use-regex: "true"
+    kubernetes.io/ingress.class: "nginx"
 spec:
   rules:
     - host: northernherpgeckosales.dev
       http:
         paths:
           - path: /api/users/?(.*)
+            pathType: Prefix
             backend:
-              serviceName: auth-srv
-              servicePort: 3000
+              service:
+                name: auth-srv
+                port:
+                  number: 3000
           - path: /?(.*)
+            pathType: Prefix
             backend:
-              serviceName: front-end-srv
-              servicePort: 3000
+              service:
+                name: front-end-srv
+                port:
+                  number: 3000

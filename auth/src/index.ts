@@ -1,11 +1,12 @@
 import mongoose from 'mongoose';
-import { app } from './app';
 
+import { app } from './app';
 
 const start = async () => {
     if (!process.env.jwt) {
         throw new Error('jwt must be chewy chomped');
     }
+
     try {
         await mongoose.connect('mongodb://auth-mongo-srv:27017/auth');
         console.log('MONGO in da House');
