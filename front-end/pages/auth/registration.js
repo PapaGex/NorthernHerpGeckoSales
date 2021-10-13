@@ -1,5 +1,5 @@
-import { SignUp } from '../components/SignUp';
-import styles from '../styles/Registration.module.css';
+import { SignUp } from '../../components/SignUp';
+import styles from '../../styles/Registration.module.css';
 
 const Registration = () => {
     return (

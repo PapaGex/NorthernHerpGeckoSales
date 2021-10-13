@@ -47,8 +47,8 @@ export const SignUp = () => {
                         <TextField label="Email" name="email" type="email" />
                         <TextField label="Password" name="password" type="password" />
                         <TextField label="Confirm Password" name="confirmPassword" type="password" />
-                        <button type="submit">Register</button>
-                        <button type="reset">Refresh</button>
+                        <button type="submit" classname="btn btn-primary">Register</button>
+                        <button type="reset"  className="btn btn-primary">Refresh</button>
                     </form>
                 </div>
             )}
